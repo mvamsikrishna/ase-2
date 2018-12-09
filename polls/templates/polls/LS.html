@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <title>DOUBT CLARIFICATION SYSTEM</title>
+</head>
+<style>
+	.button {
+	border-radius: 4px;
+	background-color: #1569C7;
+	border: none;
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 28px;
+	padding: 20px;
+	width: 200px;
+	transition: all 0.5s;
+	cursor: pointer;
+	margin: 5px;
+	}
+
+	.button span {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+	}
+
+	.button span:after {
+	content: '\00bb';
+	position: absolute;
+	opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+</style>
+</head>
+<body>
+   <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
+    <div class="container">
+      <a href="{% url 'index' %}" class="navbar-brand"> <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/49/IIIT_Sri_City_Logo.png/220px-IIIT_Sri_City_Logo.png" style="width: 32px; height: 62px; margin-right: 8px;">DOUBT CLARIFICATION SYSTEM</a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav">
+          <li class="nav-item px-2">
+            <a href="{% url 'index' %}" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item px-2">
+           
+            <a href="{% url 'courses' %}" class="nav-link">courses</a>
+              Courses
+            </a>
+            </li>
+               <li class="nav-item px-2">
+            <a href="{% url 'trendingquestions' %}" class="nav-link">Recent questions</a>
+          </li>
+           <li class="nav-item px-2">
+            <a href="{% url 'users' %}" class="nav-link">Users</a>
+          </li>
+          <li class="nav-item px-2">
+            <a href="{% url 'myquestions' %}" class="nav-link">MyQuestions</a>
+          </li>
+        </ul>
+            </div>
+         
+          
+
+       <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown mr-3">
+            {% for i in st_objs %}
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+              <i class="fas fa-user"></i> Welcome {{ i.student_name }}
+            </a>
+            {% endfor %}
+            <div class="dropdown-menu">
+              <a href="{% url 'profile' %}" class="dropdown-item">
+                <i class="fas fa-user-circle"></i> Profile
+              </a>
+              <!--a href="settings.html" class="dropdown-item">
+                <i class="fas fa-cog"></i> Settings
+              </a-->
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'signin' %}" class="nav-link">
+              <i class="fas fa-user-times"></i> Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header id="main-header" class="py-2 bg-primary text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1>
+            <i class="fas fa-pencil-alt"></i>LIFE SCIENCE</h1>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <td>
+    <u> <center> <h1>LIFE SCIENCE</h1></center></td></u><br><br>
+
+ <center>  <p><i>"Life Sciences" redirects here. For the scientific journal, see<font color="blue"> Life Sciences (journal)</font> .</p></i>
+</center>
+<p>The <b>life sciences</b> or <b>biological sciences</b> comprise the<font color="blue"> branches of science</font> that involve the scientific study of<font color="blue"> life</font> and <font color="blue">organisms </font>– such as<font color="blue"> microorganisms, plants</font>, and <font color="blue"> animals</font> including<font color="blue"> human beings </font>.</p>
+
+<p>Life science is one of the two major branches of <font color="blue">natural science</font>, the other being<font color="blue"> physical science</font>, which is concerned with non-living matter.</p>
+
+<p>By definition,<font color="blue"> biology</font> is the<font color="blue"> natural science</font> that studies life and living organisms, with the other life sciences being its sub-disciplines.</p>
+
+<p>Some life sciences focus on a specific type of organism. For example, <font color="blue">zoology</font> is the study of <font color="blue">animals</font>, while <font color="blue">botany</font> is the study of plants. Other life sciences focus on aspects common to all or many life forms, such as <font color="blue">anatomy </font> and<font color="blue"> genetics</font>. Some focus on the micro scale (e.g. <font color="blue">molecular biology, biochemistry</font>) other on larger scales (e.g.<font color="blue"> cytology, immunology, ethology, ecology</font>). Another major, branch of life sciences involves understanding the <font color="blue">mind – neuroscience</font>.</p>
+
+<p>Life sciences discoveries are helpful in improving the quality and standard of life, and have applications in health, agriculture, medicine, and the pharmaceutical and food science industries.</p> <br>
+
+
+
+<p><b><font color="blue">Biology</font></b> – burst and eclectic field, composed of many branches and sub-disciplines. However, despite the complexity and the broad scope of the science, there are certain general and unifying concepts within it that govern all study and research, consolidating it into a single, coherent field. Here are some of biology's major branches:</P>
+
+    <p><font color="blue">Anatomy </font>– study of form and function, in plants, animals, and other organisms, or specifically in humans</p>
+    <p><font color="blue">Astrobiology </font> – the study of the formation and presence of life in the universe</p>
+    <p><font color="blue">Biochemistry </font> – study of the chemical reactions required for life to exist and function, usually a focus on the cellular level</p>
+
+    <p><font color="blue">Bioinformatics </font> – developing of methods or software tools for storing, retrieving, organizing and analyzing biological data to generate useful biological knowledge</p>
+
+   <p><font color="blue"> Biolinguistics </font> – study of the biology and evolution of language</p>
+    <p><font color="blue">Biological anthropology </font> – the study of humans, non-human primates, and hominids. Also known as physical anthropology</p>
+   <p> <font color="blue">Biomechanics  </font>– the study of the mechanics of living beings</p>
+    <p><font color="blue">Biophysics </font> – study of biological processes by applying the theories and methods that have been traditionally used in the physical sciences</p>
+    <p><font color="blue">Botany </font> – study of plants</p>
+    Cell biology – study of the cell as a complete unit, and the molecular and chemical interactions that occur within a living cell. Also known as cytology</p>
+    <p><font color="blue">Developmental biology  </font>– study of the processes through which an organism forms, from zygote to full structure</p>
+    <p><font color="blue">Ecology  </font>– study of the interactions of living organisms with one another and with the non-living elements of their environment</p>
+    <p><font color="blue">Ethology  </font>– the study of behaviour</p>
+   <p> <font color="blue">Evolutionary biology </font> – study of the origin and descent of species over time</p>
+   <p><font color="blue"> Evolutionary developmental biology  </font>– study of the evolution of development including its molecular control</p>
+    <p><font color="blue">Genetics  </font>– study of genes and heredity</p>
+    <p><font color="blue">Histology  </font>– the study of tissues</p>
+    <p><font color="blue">Immunology </font> – the study of the immune system</p>
+   <p><font color="blue"> Microbiology  </font>– study of microscopic organisms (microorganisms) and their interactions with other living organisms</p>
+    <p><font color="blue">Molecular biology </font> – study of biology and biological functions at the molecular level, some cross over with biochemistry, genetics and microbiology</p>
+    
+
+<!-------<br> <b> <font size ="5">Some Links: </font></b><br>
+
+
+<a href="https://www.tutorialspoint.com/vlsi_design/vlsi_design_digital_system.htm">vlsi_design/vlsi_design_digital_system. </a><br><br>
+
+<a href="https://www.engineersgarage.com/articles/vlsi-design-future">vlsi-design-future</a><br><br>
+
+<a href="https://www.techulator.com/resources/13398-What-is-VLSI-Technology.aspx">VLSI-Technology</a><!------->
+
+             
+<script type="text/javascript">
+
+            function clickUpload() {
+                document.getElementById("UploadFile").click();
+            }
+
+            function clickDownload() {
+                document.getElementById("DownloadForm").submit();
+            }
+
+            function MakeUpload() {
+                document.getElementById("UploadForm").submit();
+            }
+
+        </script>
+    </head>
+    <body>
+        <form action="Test1.asp">
+            <input type="button" value="Upload" onclick="clickUpload();" />
+            <input type="button" value="Download" onclick="clickDownload();" />
+            <form id="UploadForm" action="test3.asp" enctype="multipart/form-data">
+                <input type="file" id="UploadFile" onchange="MakeUpload();" style="display:none" />
+            </form>
+            <form id="DownloadForm" action="Test4.asp">
+            </form>
+        </form>
+  <!-- FOOTER -->
+  <footer id="main-footer" class="bg-dark text-white mt-5 p-5">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <p class="lead text-center">
+            Copyright &copy;
+            <span id="year"></span>
+           DOUBT CLARFICATION SYSTEM
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
+
+
+  <script>
+    // Get the current year for the copyright
+    $('#year').text(new Date().getFullYear());
+  </script>
+</body>
+
+</html>

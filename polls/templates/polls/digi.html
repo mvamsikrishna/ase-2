@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <title>DOUBT CLARIFICATION SYSTEM</title>
+</head>
+<style>
+	.button {
+	border-radius: 4px;
+	background-color: #1569C7;
+	border: none;
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 28px;
+	padding: 20px;
+	width: 200px;
+	transition: all 0.5s;
+	cursor: pointer;
+	margin: 5px;
+	}
+
+	.button span {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+	}
+
+	.button span:after {
+	content: '\00bb';
+	position: absolute;
+	opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+</style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
+    <div class="container">
+      <a href="{% url 'index' %}" class="navbar-brand"> <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/49/IIIT_Sri_City_Logo.png/220px-IIIT_Sri_City_Logo.png" style="width: 32px; height: 62px; margin-right: 8px;">DOUBT CLARIFICATION SYSTEM</a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav">
+          <li class="nav-item px-2">
+            <a href="{% url 'index' %}" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item px-2">
+           
+            <a href="{% url 'courses' %}" class="nav-link">courses</a>
+              
+            </a>
+            </li>
+               <li class="nav-item px-2">
+            <a href="{% url 'trendingquestions' %}" class="nav-link">Recent questions</a>
+          </li>
+          <li class="nav-item px-2">
+            <a href="{% url 'users' %}" class="nav-link">Users</a>
+          </li>
+          <li class="nav-item px-2">
+            <a href="{% url 'myquestions' %}" class="nav-link">MyQuestions</a>
+          </li>
+            </div>
+         
+          
+
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown mr-3">
+            {% for i in st_objs %}
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+              <i class="fas fa-user"></i> Welcome {{ i.student_name }}
+            </a>
+            {% endfor %}
+            <div class="dropdown-menu">
+              <a href="{% url 'profile' %}" class="dropdown-item">
+                <i class="fas fa-user-circle"></i> Profile
+              </a>
+              <!--a href="settings.html" class="dropdown-item">
+                <i class="fas fa-cog"></i> Settings
+              </a-->
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'signin' %}" class="nav-link">
+              <i class="fas fa-user-times"></i> Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header id="main-header" class="py-2 bg-primary text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1>
+            <i class="fas fa-pencil-alt"></i>DIGITAL COMMUNICATION </h1>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <td>
+    <u> <center> <h1> DIGITAL COMMUNICATION</h1></center></td></u><br><br>
+
+The communication that occurs in our day-to-day life is in the form of signals. These signals, such as<font color = "blue"> sound signals,</font> generally, are analog in nature. When the communication needs to be established over a distance, then the analog signals are sent through wire, using different techniques for effective transmission.
+
+        <p> <b>Digital communication</b> is a<font color = "blue"> mode of communication</font>. It occurs when the information or the thought is encoded digitally as <font color = "blue">discreet signals</font> and then is <font color = "blue">electronically transferred</font> to the recipients.
+
+In our increasingly connected world, one can hardly imagine his/her life without <b>digital communication</b>. It allows modern people to connect with each other more easily than ever before.</p>
+
+<p>People are living active digital lives. They’re spending more time on <font color = "blue"> digital devices</font>, such as applications. Digital means of <font color = "blue">communication like messaging</font> apps are surging in popularity all over the world.
+
+Chat apps help users connect with family and friends more easily, effectively, and even for free. This is also true of businesses: they use <b>digital communication</b> to connect with partners and clients all over the world.</P>
+The communication that occurs in our   <font color = "blue">day-to-day life </font> is in the form of signals. These signals, such as<font color = "blue"> sound signals,</font> generally, are analog in nature. When the communication needs to be   <font color = "blue">established over a distance</font>, then the analog signals are sent through wire, using different techniques for effective transmission. <br>
+
+<p> n the design of large and complex digital systems, it is often necessary to have one device communicate digital information to and from other devices. One advantage of digital information is that it tends to be far more resistant to transmitted and interpreted errors than information symbolized in an analog medium. This accounts for the clarity of digitally-encoded telephone connections, compact audio disks, and for much of the enthusiasm in the engineering community for digital communications technology. However, digital communication has its own unique pitfalls, and there are multitudes of different and incompatible ways in which it can be sent. Hopefully, this chapter will enlighten you as to the basics of digital communication, its advantages, disadvantages, and practical considerations.</P>
+
+<p>Suppose we are given the task of remotely monitoring the level of a water storage tank. Our job is to design a system to measure the level of water in the tank and send this information to a distant location so that other people may monitor it. Measuring the tank’s level is quite easy, and can be accomplished with a number of different types of instruments, such as float switches, pressure transmitters, ultrasonic level detectors, capacitance probes, strain gauges, or radar level detectors.</P>
+
+<p>For the sake of this illustration, we will use an analog level-measuring device with an output signal of 4-20 mA. 4 mA represents a tank level of 0%, 20 mA represents a tank level of 100%, and anything in between 4 and 20 mA represents a tank level proportionately between 0% and 100%. If we wanted to, we could simply send this 4-20 milliamp analog current signal to the remote monitoring location by means of a pair of copper wires, where it would drive a panel meter of some sort, the scale of which was calibrated to reflect the depth of water in the tank, in whatever units of measurement preferred.</p>
+
+<center><img src="04224.png"></center><br><br>
+
+
+<p>Each of these switches is wired to close a circuit, sending current to individual lamps mounted on a panel at the monitoring location. As each switch closed, its respective lamp would light, and whoever looked at the panel would see a 5-lamp representation of the tank’s level.</p>
+
+<p>Being that each lamp circuit is digital in nature—either 100% on or 100% off—electrical interference from other wires along the run have much less effect on the accuracy of measurement at the monitoring end than in the case of the analog signal. A huge amount of interference would be required to cause an “off” signal to be interpreted as an “on” signal or vice versa. Relative resistance to electrical interference is an advantage enjoyed by all forms of digital communication over analog.</P>
+
+<p>Now that we know digital signals are far more resistant to error induced by “noise,” let’s improve on this tank level measurement system. For instance, we could increase the resolution of this tank gauging system by adding more switches, for more precise determination of water level. Suppose we install 16 switches along the tank’s height instead of five. This would significantly improve our measurement resolution but at the expense of greatly increasing the quantity of wires needing to be strung between the tank and the monitoring location. One way to reduce this wiring expense would be to use a priority encoder to take the 16 switches and generate a binary number which represented the same information:</p>
+
+<center><img src="04227.png"></center><br><br>
+
+<!-------<br> <b> <font size ="5">Some Links: </font></b><br>
+
+
+<a href="https://www.tutorialspoint.com/vlsi_design/vlsi_design_digital_system.htm">vlsi_design/vlsi_design_digital_system. </a><br><br>
+
+<a href="https://www.engineersgarage.com/articles/vlsi-design-future">vlsi-design-future</a><br><br>
+
+<a href="https://www.techulator.com/resources/13398-What-is-VLSI-Technology.aspx">VLSI-Technology</a><!-------><script type="text/javascript">
+
+            function clickUpload() {
+                document.getElementById("UploadFile").click();
+            }
+
+            function clickDownload() {
+                document.getElementById("DownloadForm").submit();
+            }
+
+            function MakeUpload() {
+                document.getElementById("UploadForm").submit();
+            }
+
+        </script>
+    </head>
+    <body>
+        <form action="Test1.asp">
+            <input type="button" value="Upload" onclick="clickUpload();" />
+            <input type="button" value="Download" onclick="clickDownload();" />
+            <form id="UploadForm" action="test3.asp" enctype="multipart/form-data">
+                <input type="file" id="UploadFile" onchange="MakeUpload();" style="display:none" />
+            </form>
+            <form id="DownloadForm" action="Test4.asp">
+            </form>
+        </form>
+
+
+
+             
+
+  <!-- FOOTER -->
+  <footer id="main-footer" class="bg-dark text-white mt-5 p-5">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <p class="lead text-center">
+            Copyright &copy;
+            <span id="year"></span>
+           DOUBT CLARFICATION SYSTEM
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
+
+
+  <script>
+    // Get the current year for the copyright
+    $('#year').text(new Date().getFullYear());
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <title>DOUBT CLARIFICATION SYSTEM</title>
+</head>
+<style>
+	.button {
+	border-radius: 4px;
+	background-color: #1569C7;
+	border: none;
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 28px;
+	padding: 20px;
+	width: 200px;
+	transition: all 0.5s;
+	cursor: pointer;
+	margin: 5px;
+	}
+
+	.button span {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+	}
+
+	.button span:after {
+	content: '\00bb';
+	position: absolute;
+	opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+</style>
+</head>
+<body>
+   <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
+    <div class="container">
+      <a href="{% url 'index' %}" class="navbar-brand"> <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/49/IIIT_Sri_City_Logo.png/220px-IIIT_Sri_City_Logo.png" style="width: 32px; height: 62px; margin-right: 8px;">DOUBT CLARIFICATION SYSTEM</a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav">
+          <li class="nav-item px-2">
+            <a href="{% url 'index' %}" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item px-2">
+           
+            <a href="{% url 'courses' %}" class="nav-link">courses</a>
+              
+            </a>
+            </li>
+               <li class="nav-item px-2">
+            <a href="{% url 'trendingquestions' %}" class="nav-link">Recent questions</a>
+          </li>
+          <li class="nav-item px-2">
+            <a href="{% url 'users' %}" class="nav-link">Users</a>
+          </li>
+          <li class="nav-item px-2">
+            <a href="{% url 'myquestions' %}" class="nav-link">MyQuestions</a>
+          </li>
+            </div>
+         
+          
+
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown mr-3">
+            {% for i in st_objs %}
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+              <i class="fas fa-user"></i> Welcome {{ i.student_name }}
+            </a>
+            {% endfor %}
+            <div class="dropdown-menu">
+              <a href="{% url 'profile' %}" class="dropdown-item">
+                <i class="fas fa-user-circle"></i> Profile
+              </a>
+              <!--a href="settings.html" class="dropdown-item">
+                <i class="fas fa-cog"></i> Settings
+              </a-->
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'signin' %}" class="nav-link">
+              <i class="fas fa-user-times"></i> Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- HEADER -->
+  <header id="main-header" class="py-2 bg-primary text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1>
+            <i class="fas fa-pencil-alt"></i>Very-large-scale integration </h1>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <td>
+    <u> <center> <h1> Very-large-scale Integration </h1></center></td></u><br><br>
+
+         <b> Very Large Scale Integration (VLSI)</b> is the process of creating an <font color = "blue">integrated circuit (IC) </font> by combining hundreds of thousands of  <font color = "blue"> transistors </font> or devices into a single chip. VLSI began in the 1970s when complex   <font color = "blue">semiconductor</font> and   <font color = "blue">communication  </font>technologies were being developed. The  <font color = "blue"> microprocessor </font> is a VLSI device. Before the introduction of VLSI technology most ICs had a limited set of functions they could perform. An    <font color = "blue">electronic circuit </font> might consist of a  <font color = "blue"> CPU, ROM, RAM  </font> and other   <font color = "blue"> glue logic </font> . VLSI lets IC designers add all of these into   <font color = "blue"> one chip. </font>
+<br> <br>
+
+
+<br> <b> <font size ="5">HISTORY: </font></b></br>
+
+<p> The <font color = "blue">  history of the transistor  </font> dates to the 1920s when several inventors attempted devices that were intended to control current in   <font color = "blue">solid-state diodes </font> and convert them into triodes. Success came after World War II, when the use of silicon and germanium crystals as radar detectors led to improvements in fabrication and theory. Scientists who had worked on radar returned to solid-state device development. With the invention of transistors at Bell Labs in 1947, the field of electronics shifted from vacuum tubes to solid-state device.</p>
+
+With the small transistor at their hands, electrical engineers of the 1950s saw the possibilities of constructing far more advanced circuits. However, as the complexity of circuits grew, problems arose.[2]
+
+One problem was the size of the circuit. A complex circuit like a computer was dependent on speed. If the components were large, the wires interconnecting them must be long. The electric signals took time to go through the circuit, thus slowing the computer.[2]
+
+The invention of the integrated circuit by Jack Kilby and Robert Noyce solved this problem by making all the components and the chip out of the same block (monolith) of semiconductor material. The circuits could be made smaller, and the manufacturing process could be automated. This led to the idea of integrating all components on a single-crystal silicon wafer, which led to small-scale integration (SSI) in the early 1960s, medium-scale integration (MSI) in the late 1960s, and then large-scale integration (LSI) as well as VLSI in the 1970s and 1980s, with tens of thousands of transistors on a single chip (later hundreds of thousands, then millions, and now billions (109)).<br><br><br>
+
+
+
+
+<br> <b> <font size ="5">DEVELOPEMENT: </font></b></br><br>
+
+<p>The first semiconductor chips held two transistors each. Subsequent advances added more transistors, and as a consequence, more individual functions or systems were integrated over time. The first integrated circuits held only a few devices, perhaps as many as ten  <font color = "blue"> diodes, transistors, resistors  </font> and  <font color = "blue"> capacitors </font>, making it possible to fabricate one or more   <font color = "blue"> logic gates  </font> on a single device. Now known retrospectively as  <i> <font color = "blue">  small-scale   integration </font></i>(SSI), improvements in technique led to devices with hundreds of logic gates, known as <i> <font color = "blue"> medium-scale integration </font></i>(MSI). Further improvements led to large-scale integration (LSI), i.e. systems with at least a thousand logic gates. Current technology has moved far past this mark and today's microprocessors have many millions of gates and billions of individual transistors.</P>
+
+<p>At one time, there was an effort to name and calibrate various levels of <i> <font color = "blue"> large-scale integration </font></i>above VLSI. Terms like ultra-large-scale integration (ULSI) were used. But the huge number of gates and transistors available on common devices has rendered such fine distinctions moot. Terms suggesting greater than  <font color = "blue"> VLSI </font> levels of integration are no longer in widespread use.</p>
+
+<p>In 2008, billion-transistor processors became commercially available. This became more commonplace as<i> <font color = "blue">  semiconductor fabrication</font></i> advanced from the then-current generation of 65 nm processes. Current designs, unlike the earliest devices, use extensive design automation and <font color = "blue">  automated logic synthesis </font> to lay out the <i> <font color = "blue">  transistors,</font></i> enabling higher levels of complexity in the resulting logic functionality. Certain high-performance logic blocks like the <font color = "blue"> SRAM </font>(static random-access memory) cell, are still designed by hand to ensure the highest efficiency.</p> </br><br>
+
+<br> <b> <font size ="5">Some Links: </font></b><br>
+
+
+<a href="https://www.tutorialspoint.com/vlsi_design/vlsi_design_digital_system.htm">vlsi_design/vlsi_design_digital_system. </a><br><br>
+
+<a href="https://www.engineersgarage.com/articles/vlsi-design-future">vlsi-design-future</a><br><br>
+
+<a href="https://www.techulator.com/resources/13398-What-is-VLSI-Technology.aspx">VLSI-Technology</a>
+
+<script type="text/javascript">
+
+            function clickUpload() {
+                document.getElementById("UploadFile").click();
+            }
+
+            function clickDownload() {
+                document.getElementById("DownloadForm").submit();
+            }
+
+            function MakeUpload() {
+                document.getElementById("UploadForm").submit();
+            }
+
+        </script>
+    </head>
+    <body>
+        <form action="Test1.asp">
+            <input type="button" value="Upload" onclick="clickUpload();" />
+            <input type="button" value="Download" onclick="clickDownload();" />
+            <form id="UploadForm" action="test3.asp" enctype="multipart/form-data">
+                <input type="file" id="UploadFile" onchange="MakeUpload();" style="display:none" />
+            </form>
+            <form id="DownloadForm" action="Test4.asp">
+            </form>
+        </form>
+
+             
+
+  <!-- FOOTER -->
+  <footer id="main-footer" class="bg-dark text-white mt-5 p-5">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <p class="lead text-center">
+            Copyright &copy;
+            <span id="year"></span>
+           DOUBT CLARFICATION SYSTEM
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
+
+
+  <script>
+    // Get the current year for the copyright
+    $('#year').text(new Date().getFullYear());
+  </script>
+</body>
+
+</html>
