@@ -79,9 +79,7 @@ def courses(request):
 
 
 def details(request):
-	stud = Student.objects.all().filter(student_id=global_studentid)
-	context = { 'student_objs' : Student.objects.all() , 'stud_objs' : stud }
-	return render(request,'polls/details.html',context)
+	return render(request,'polls/details.html')
 
 
 def trendingquestions(request):
@@ -335,9 +333,8 @@ def viewqa3(request):
 		
 
 def myquestions(request):
-	qu = Question.objects.all().filter(q = global_studentname)
-	context = { 'qu_objs' : qu }
+	qu = Question.objects.all().filter(q = global_studentname).order_by('-pub_date')
+	context = { 'question_objs' : qu ,'answer_objs': Answer.objects.all().order_by('-aub_date')}
 	return render(request,'polls/myquestions.html',context)
-
 
 
