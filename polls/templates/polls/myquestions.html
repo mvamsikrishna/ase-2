@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
     crossorigin="anonymous">
@@ -13,29 +12,6 @@
   <link rel="stylesheet" href="css/style.css">
   <title>Doubt Clarification System</title>
 <style>
-* {
-  box-sizing: border-box;
-}
-#myTable td {
-  text-align: left;
-  padding: 12px;
-}
-
-#myTable tr {
-  border-bottom: 1px solid #ddd;
-}
-
-#myInput {
-  background-image: url('/css/searchicon.png');
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  width: 100%;
-  font-size: 16px;
-  padding: 12px 20px 12px 40px;
-  border: 1px solid #ddd;
-  margin-bottom: 12px;
-}
-
 input[type=submit] {
     width: 100%;
     background-color: #4CAF50;
@@ -47,7 +23,7 @@ input[type=submit] {
     cursor: pointer;
 }
 input[type=text], select {
-    width: 100%;
+    width: 80%;
     padding: 6px 20px;
     margin: 4px 0;
     display: inline-block;
@@ -71,16 +47,16 @@ input[type=text], select {
             <a href="{% url 'index' %}" class="nav-link">Home</a>
           </li>
           <li class="nav-item px-2">
-            <a href="{% url 'courses' %}" class="nav-link ">Courses</a>
+            <a href="{% url 'courses' %}" class="nav-link active">Courses</a>
           </li>
           <li class="nav-item px-2">
-            <a href="{% url 'trendingquestions' %}" class="nav-link">Recent questions</a>
+            <a href="{% url 'trendingquestions' %}" class="nav-link">Recent Questions</a>
           </li>
           <li class="nav-item px-2">
             <a href="{% url 'users' %}" class="nav-link">Users</a>
           </li>
           <li class="nav-item px-2">
-            <a href="{% url 'myquestions' %}" class="nav-link active">My Questions</a>
+            <a href="{% url 'myquestions' %}" class="nav-link">MyQuestions</a>
           </li>
         </ul>
 
@@ -110,8 +86,6 @@ input[type=text], select {
     </div>
   </nav>
 
-<!--input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"-->
-
   <!-- HEADER -->
   <header id="main-header" class="py-2 bg-success text-white">
     <div class="container">
@@ -124,124 +98,89 @@ input[type=text], select {
     </div>
   </header>
 
-  <!-- SEARCH -->
-  
+ 
+
   <!-- CATEGORIES -->
 
-{% for i in qu_objs %}
-	
-	
-		  <section id="categories">
-		    <div class="container">
-					<form action="" method="POST">
-						{% csrf_token %}
-		      <div class="row">
-			<div class="col">
-			  <div class="card">
-			    <div class="card-header">
-			      <!--<h4>Latest Questions</h4>-->
-			    </div>
-			    <table class="table table-striped">
-						<tbody>
-			      <!--thead class="thead-dark"-->
-				<tr>
-				  <td><input  type="text" class="form-control" name="write" value = "Q) {{i.question_text}}" disabled style="background:#4CAF50; color:white;" ></td> 
-          <td><input type="text" class="form-control" value = "postedby: {{i.q}}" disabled ></td>
-          <td><input type="text" class="form-control" value = "{{i.pub_date}}" disabled ></td>
-				
-				  <!--th>Title</th>
-				  <th>Date</th>
-				  <th></th-->
-				</tr>
-			      <!--/thead-->
-				
-			      {% for j in answer_objs %}
+{% for i in question_objs %}
+  
+  
+      <section id="categories">
+        <div class="container">
+          <form action="" method="POST">
+            {% csrf_token %}
+          <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-header">
+            <!--<h4>Latest Questions</h4>-->
+          </div>
+          <table class="table table-striped">
+            <tbody>
+            <!--thead class="thead-dark"-->
+        <tr>
+          <td><input  type="text" class="form-control" name="write" value = "Q) {{i.question_text}}" disabled style="background:#4CAF50; color:white;" ></td> 
+          <td><input type="text" class="form-control" value = "postedby: {{i.q}}" readonly ></td>
+           <td><input type="text" class="form-control" value = "{{i.pub_date}}" disabled ></td>
+          <!--th>Title</th>
+          <th>Date</th>
+          <th></th-->
+        </tr>
+            <!--/thead-->
+        
+            {% for j in answer_objs %}
 
 
-					{% if j.answer_id == i.question_id %}
-						<!--<table id="my">
-						<tbody>	-->					
-						<tr>
-						  <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspans)   {{ j.answer }}</td>
-								  <td>PostedBy: {{ j.a }}</td>
-						  
-						</tr>
-						<!--</tbody>						
-						</table>-->
-							
-					{% endif %}
-				 	
-				{% endfor %}
-					<!--tr>
-					<td>
-					
-					<div class="input-group">
-			    	
-				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" class="form-control" name="guess" value = "answer" disabled >
-				<input type="text" class="form-control" required name="answ" placeholder="Send answer..."-->
-				<!--<input type="text" class="form-control" placeholder="Search Trending Questions..."> -->
-			    <!--div class="input-group-append"> 
-			      <input type="submit" onclick="clicked()" value="Send">
-			    </div>
-			  </div>
-				</form>
-				</td>
-				</tr-->
-				
-				
-				
-					
-		<!--script type="text/javascript">
-		    function clicked() {
-		       if (confirm('Do you want to submit?')) {
-			   yourformelement.submit();
-		       } else {
-			   return false;
-		       }
-		    }
-		</script-->
-
-				
-			      </tbody>
-			    </table>
+          {% if j.answer_id == i.question_id %}
+            <tr>
+              <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspans)  {{ j.answer }}</td>
+                  <td>PostedBy: {{ j.a }}</td>
+                  <td> {{ j.aub_date }}</td>
+              
+            </tr>
+          {% endif %}
           
-				<!--script>
-				function myFunction() {
-				  var input, filter, table, tr, td;
-				  input = document.getElementById("myInput");
-				  filter = input.value.toUpperCase();
-				
-					//var ne=i.question_text;
-					//var  he=document.getElementById("hem");
-					//var 
-					//document.write(he);
-				 // document.write(filter);
-				  table = document.getElementById("myTable");
-				  tr = table.getElementsByTagName("tr");
-				
-				  for (i = 0; i < tr.length; i++) {
-				    td = tr[i].getElementsByTagName("td")[0];
-					//document.write(td);
-				    if (td) {
-				      if (td.toUpperCase().indexOf(filter) > -1) {
-					tr[i].style.display = "";
-				      } else {
-					tr[i].style.display = "none";
-				      }
-				    }    
-				 
-				}
-				</script-->
+        {% endfor %}
+          <tr>
+          <td>
+          
+          <div class="input-group">
+            
+        <input type="text" class="form-control" name="guess" required value = "answer" readonly >
+        <input type="text" class="form-control" name="answ" required placeholder="Send answer...">
+        <!--<input type="text" class="form-control" placeholder="Search Trending Questions..."> -->
+          <div class="input-group-append"> 
+            <input type="submit" onclick="clicked()" value="Send">
+          </div>
+        </div>
+        </form>
+        </td>
+        </tr>
+        
+        
+        
+          
+    <script type="text/javascript">
+        function clicked() {
+           if (confirm('Do you want to submit?')) {
+         yourformelement.submit();
+           } else {
+         return false;
+           }
+        }
+    </script>
 
+        
+            </tbody>
+          </table>
 
-			  </div>
-			</div>
-		      </div>
-			</form>
-		    </div>
-		  </section>
-	<br>
-  <br>
+        </div>
+      </div>
+          </div>
+      </form>
+        </div>
+      </section>
+ 
 {% endfor %}
 
   <!-- FOOTER -->
